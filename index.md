@@ -30,5 +30,5 @@ We are a cyber security startup in steath mode. We have decided to release this 
 
 As a demo, the resume upload page is available for you to try out via a static S3 website
 
-Interested in working in cyber security? Contact us at Unbiased.Ostriches@gmail.com
+Interested in working in cyber security? Contact us at [Unbiased.Ostriches@gmail.com]
 
