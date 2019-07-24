@@ -4,6 +4,24 @@ layout: default
 
 ![Brain Tree](assets/images/brain-tree.jpg)
 
+We are a cyber security startup in steath mode. We have decided to release this proof of concenpt to the public on GitHub. 
+
+# The problem
+
+* When recuiting you need to accept resumes from anyone.
+
+* Resumes are usualy word documents can could contain macro viruses
+
+* Our competiors could use a virus in a resume to infect our computers and exfiltrate information about who we are, who has applied to join us, an our secret IP.
+
+* Our internal recuiter is non technical, part time, and not equiped to deal with such cyber threats.
+
+# The solution.
+
+
+
+
+
 
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
