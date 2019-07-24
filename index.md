@@ -4,7 +4,7 @@ layout: default
 
 ![Brain Tree](assets/images/brain-tree.jpg)
 
-We are a cyber security startup in steath mode. We have decided to release this proof of concenpt to the public on GitHub.
+We are a cyber security startup in steath mode. We have decided to release this proof of concept to the public on GitHub.
 
 # The problem
 
