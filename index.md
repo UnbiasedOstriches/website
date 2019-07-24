@@ -4,142 +4,31 @@ layout: default
 
 ![Brain Tree](assets/images/brain-tree.jpg)
 
-We are a cyber security startup in steath mode. We have decided to release this proof of concenpt to the public on GitHub. 
+We are a cyber security startup in steath mode. We have decided to release this proof of concenpt to the public on GitHub.
 
 # The problem
 
-* When recuiting you need to accept resumes from anyone.
+* When recruiting you need to accept resumes from anyone.
 
-* Resumes are usualy word documents can could contain macro viruses
+* Resumes are usually word documents can could contain macro viruses
 
-* Our competiors could use a virus in a resume to infect our computers and exfiltrate information about who we are, who has applied to join us, an our secret IP.
+* Our competitors could use a virus in a resume to infect our computers and exfiltrate information about who we are, who has applied to join us, an our secret IP.
 
-* Our internal recuiter is non technical, part time, and not equiped to deal with such cyber threats.
+* Our internal recruiter is non technical, part time, and not equipped to deal with such cyber threats.
 
 # The solution.
 
+* Scan resumes on upload, an only deliver to the recruiter if they are clean
 
+* We use the SophosLabs Intelix public scanning API to scan all uploaded files
 
+* There is basic plumbing in AWS with buckets, lambdas, queues, topics etc to make it all work
 
+* After each upload and scan, a link to the Resume is sent to our recruiter with information on the scan result.
 
+# Proof of concept website.
 
+As a demo, the resume upload page is available for you to try out via a static S3 website
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+Interested in working in cyber security? Contact us at Unbiased.Ostriches@gmail.com
 
-[Link to another page](./another-page.html).
-
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
-
-# Header 1
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-
-## Header 2
-
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
-
-### Header 3
-
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
-
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
-
-#### Header 4
-
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
