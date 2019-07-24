@@ -20,7 +20,7 @@ We are a cyber security startup in steath mode. We have decided to release this 
 
 * Scan resumes on upload, an only deliver to the recruiter if they are clean
 
-* We use the SophosLabs Intelix public scanning API to scan all uploaded files
+* We use the [SophosLabs Intelix](https://api.labs.sophos.com/doc/index.html) public scanning API to scan all uploaded files
 
 * There is basic plumbing in AWS with buckets, lambdas, queues, topics etc to make it all work
 
