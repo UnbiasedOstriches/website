@@ -28,7 +28,7 @@ We are a cyber security startup in steath mode. We have decided to release this 
 
 # Proof of concept website.
 
-As a demo, the resume upload page is available for you to try out via a static S3 website.
+As a demo, the resume upload page is available for you to try out via a [static S3 website](https://ostriches-web.s3.eu-central-1.amazonaws.com/index2.html).
 
 Interested in working in cyber security? Contact us at [Unbiased.Ostriches@gmail.com]
 
