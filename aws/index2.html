@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
+    <script src="./app2.js"></script>
+    <script>
+       function getHtml(template) {
+          return template.join('\n');
+       }
+    </script>
+  </head>
+  <body>
+    <h1>Resume Upload</h1>
+    <div id="app">
+    	<input id="fileupload" type="file">
+    	<button id="addphoto" onclick="addFile()">Add File</button>
+    </div>
+  </body>
+</html>
