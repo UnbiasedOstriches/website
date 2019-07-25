@@ -10,7 +10,7 @@ We are a cyber security startup in steath mode. We have decided to release this 
 
 * When recruiting you need to accept resumes from anyone.
 
-* Resumes are usually word documents could contain macro viruses.
+* Resumes are usually word documents which might contain macro viruses or other threats.
 
 * Our competitors could use a virus in a resume to infect our computers and exfiltrate information about who we are, who has applied to join us, and our secret IP.
 
