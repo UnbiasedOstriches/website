@@ -1,6 +1,7 @@
 import json
 import boto3
 import uuid
+from urllib.parse import unquote_plus
 
 def lambda_handler(event, context):
 
@@ -36,7 +37,7 @@ def lambda_handler(event, context):
     
 def extract_key(message):
     try:
-       return message['s3']['object']['key']
+       return unquote_plus(message['s3']['object']['key'])
     except Exception as e:
        print("Error extracting key: " + str(e))
        return None
