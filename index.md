@@ -10,7 +10,7 @@ We are a cyber security startup in steath mode. We have decided to release this 
 
 * When recruiting you need to accept resumes from anyone.
 
-* Resumes are usually word documents can could contain macro viruses.
+* Resumes are usually word documents could contain macro viruses.
 
 * Our competitors could use a virus in a resume to infect our computers and exfiltrate information about who we are, who has applied to join us, and our secret IP.
 
@@ -30,5 +30,4 @@ We are a cyber security startup in steath mode. We have decided to release this 
 
 As a demo, the resume upload page is available for you to try out via a [static S3 website](https://ostriches-web.s3.eu-central-1.amazonaws.com/index2.html).
 
-Interested in working in cyber security? Contact us at [Unbiased.Ostriches@gmail.com]
-
+Interested in working in cyber security? Contact us at [Unbiased.Ostriches@gmail.com](mailto:Unbiased.Ostriches@gmail.com)
