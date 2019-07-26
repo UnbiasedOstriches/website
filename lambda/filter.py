@@ -30,7 +30,9 @@ def lambda_handler(event, context):
             if destination_key:
                 publish_message("WARNING - Suspicious resume submission from " + candidate_name,
                 		"Resume has been copied to: " + destination_key + "\n" +
-                		"Candidate email " + candidate_email)
+                		"Candidate email " + candidate_email + "\n" +
+                		"Details of analysis:\n" + 
+                		json.dumps(json_message['report'], indent = 2))
             else:
                 publish_message("Failed submission",
                 		"Unable to process request: " + json.dumps(json_message, indent=2))
