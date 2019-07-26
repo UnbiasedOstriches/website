@@ -16,21 +16,28 @@ def lambda_handler(event, context):
     if key:
         good_file = check_file(json_message)
         if good_file:
-            destination_key = move_file_good(key)
+            destination_key, candidate_name, candidate_email = move_file_good(key)
             if destination_key:
-                publish_message("Resume ready for processing: " + destination_key)
+                publish_message("Resume submission from " + candidate_name,
+                		"Resume ready for processing: " + destination_key + "\n" +
+                		"Candidate email " + candidate_email)
             else:
-                publish_message("Unable to process request: " + json.dumps(json_message, indent=2))
+                publish_message("Failed submission",
+				"Unable to process request: " + json.dumps(json_message, indent=2))
                 return "Failure"
         else:
-            destination_key = move_file_bad(key)
+            destination_key, candidate_name, candidate_email = move_file_bad(key)
             if destination_key:
-                publish_message("Resume is suspicious: " + destination_key)
+                publish_message("WARNING - Suspicious resume submission from " + candidate_name,
+                		"Resume has been copied to: " + destination_key + "\n" +
+                		"Candidate email " + candidate_email)
             else:
-                publish_message("Unable to process request: " + json.dumps(json_message, indent=2))
+                publish_message("Failed submission",
+                		"Unable to process request: " + json.dumps(json_message, indent=2))
                 return "Failure" 
     else:
-        publish_message("Unable to process request: " + json.dumps(json_message, indent=2))
+        publish_message("Failed submission",
+			"Unable to process request: " + json.dumps(json_message, indent=2))
         return "Failure"
     
     return "Success"
@@ -44,7 +51,7 @@ def extract_key(message):
     
 def check_file(message):
     try:
-       return message['report']['score'] > 50     
+       return message['report']['score'] >= 50   
     except Exception as e:
        print("Error reading report: " + str(e))
     
@@ -53,6 +60,10 @@ def check_file(message):
 def move_file_good(key):
     try:
         s3 = boto3.resource('s3', region_name='eu-central-1')
+        
+        info = s3.meta.client.head_object(Bucket='ostriches-in', Key=key)
+        metadata = info['Metadata']
+        
         copy_source = {
             'Bucket': 'ostriches-in',
             'Key': key
@@ -63,13 +74,18 @@ def move_file_good(key):
         obj = s3.Object('ostriches-in', key)
         obj.delete()
     
-        return destination_key
+        return destination_key, metadata['x-amz-meta-candidate-name'], metadata['x-amz-meta-candidate-email']
+        
     except Exception as e:
         print("Error moving file: " + str(e))
 
 def move_file_bad(key):
     try:
         s3 = boto3.resource('s3', region_name='eu-central-1')
+        
+        info = s3.meta.client.head_object(Bucket='ostriches-in', Key=key)
+        metadata = info['Metadata']
+        
         copy_source = {
             'Bucket': 'ostriches-in',
             'Key': key
@@ -80,17 +96,18 @@ def move_file_bad(key):
         obj = s3.Object('ostriches-in', key)
         obj.delete()
     
-        return destination_key
+        return destination_key, metadata['x-amz-meta-candidate-name'], metadata['x-amz-meta-candidate-email']
     except Exception as e:
         print("Error moving file: " + str(e))
         
 
-def publish_message(message):
+def publish_message(subject, message):
 
     sns_client = boto3.client('sns')
     
     sns_client.publish(
         TopicArn='arn:aws:sns:eu-central-1:457649757384:ostriches-email',
+        Subject=subject,
         Message=message
     )
     

@@ -23,10 +23,17 @@ function addFile() {
   }
   var file = files[0];
   var fileName = file.name;
-  var fileKey = fileName;
+  
+  var candidateName = document.getElementById('candidate_name').value;
+  var candidateEmail = document.getElementById('candidate_email').value;
+  
   s3.upload({
-    Key: fileKey,
-    Body: file
+    Key: fileName,
+    Body: file,
+    Metadata: {
+      "x-amz-meta-candidate-name" : candidateName,
+      "x-amz-meta-candidate-email" : candidateEmail
+    }
   }, function(err, data) {
     if (err) {
       return alert('There was an error uploading your file: ', err.message);

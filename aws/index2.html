@@ -3,17 +3,11 @@
   <head>
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
     <script src="./app2.js"></script>
-    <script>
-       function getHtml(template) {
-          return template.join('\n');
-       }
-    </script>
   </head>
   <body bgcolor="f6f6f6">
     <img src="https://unbiasedostriches.github.io/website/assets/images/brain-tree.jpg">
-    <h1>Secure Resume Upload</h1>
+    <h1>Resume Upload</h1>
     <div id="app">
-      <form>
         <table>
           <tr>
             <td>Candidate name: </td><td><input id="candidate_name" type="text"></td>
@@ -25,10 +19,9 @@
             <td>Upload your resume</td><td><input id="fileupload" type="file"></td>
           </tr>
           <tr>
-            <td>&nbsp;</td><td><button id="addphoto" onclick="addFile()">Submit Resume</button></td>
+            <td>&nbsp;</td><td><button id="addphoto" onclick="addFile()">Add File</button></td>
           </tr>
         </table>
-      </form>
     </div>
   </body>
 </html>
